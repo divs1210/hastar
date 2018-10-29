@@ -5,8 +5,15 @@
 (defn vec3 [x y z]
   (js/BABYLON.Vector3. x y z))
 
-(defn color [x y z]
-  (js/BABYLON.Color3. x y z))
+(defn color
+  ([r g b]
+   (js/BABYLON.Color3. r g b))
+  ([r g b a]
+   (js/BABYLON.Color4. r g b a)))
+
+(defn texture [path scene]
+  (js/BABYLON.Texture. path scene))
+
 
 
 ;; LIGHTS
@@ -34,9 +41,3 @@
 ;; =========
 (defn std-material [name scene]
   (js/BABYLON.StandardMaterial. name scene))
-
-
-;; TEXTURES
-;; ========
-(defn texture [path scene]
-  (js/BABYLON.Texture. path scene))
