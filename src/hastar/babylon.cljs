@@ -11,12 +11,12 @@
 
 ;; LIGHTS
 ;; ======
-(defn directional-light [name scene [x y z]]
+(defn directional-light [name [x y z] scene]
   (js/BABYLON.DirectionalLight. name
                                 (vec3 x y z)
                                 scene))
 
-(defn point-light [name scene [x y z]]
+(defn point-light [name [x y z] scene]
   (js/BABYLON.PointLight. name
                           (vec3 x y z)
                           scene))
@@ -24,26 +24,10 @@
 
 ;; CAMERAS
 ;; =======
-(defn camera [name scene [x y z]]
+(defn camera [name [x y z] scene]
   (js/BABYLON.UniversalCamera. "camera"
                                (vec3 x y z)
                                scene))
-
-
-;; SHAPES
-;; ======
-(defn ground [name scene width depth subdivs]
-  (js/BABYLON.Mesh.CreateGround name
-                                width
-                                depth
-                                subdivs
-                                scene))
-
-
-(defn box [name scene size]
-  (js/BABYLON.Mesh.CreateBox name
-                             size
-                             scene))
 
 
 ;; MATERIALS
