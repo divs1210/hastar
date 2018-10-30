@@ -15,7 +15,6 @@
   (js/BABYLON.Texture. path scene))
 
 
-
 ;; LIGHTS
 ;; ======
 (defn directional-light [name [x y z] scene]
