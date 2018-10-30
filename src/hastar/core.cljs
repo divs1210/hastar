@@ -10,30 +10,29 @@
 
   ;; camera
   ;; ======
-  (def camera
-    (B/camera "camera" [0 2 -5] scene))
-  
+  (def camera (B/camera "camera" [0 2 -5] scene))
   (set! (.-target camera) (B/vec3 0 1.5 0))
-  (set! (.-parent (B/point-light "torch" [0 2 -5] scene)) camera)
   (.attachControl camera canvas false)
+
+  (def torch (B/point-light "torch" [0 2 -5] scene))
+  (set! (.-intensity torch) 0.5)
+  (set! (.-parent torch) camera)
 
   ;; ground
   ;; ======
   (def ground
     (shape :ground
            "ground"
-           {:width 1000
-            :height 1000
-            :subdivisions 500}
+           {:width 200
+            :height 200
+            :subdivisions 20}
            scene))
 
   (def grass-material
     (B/std-material "grass" scene))
 
   (set! (-> grass-material .-diffuseTexture)
-        (B/texture "./textures/grass.png" scene))
-  (set! (-> grass-material .-bumpTexture)
-        (B/texture "./textures/grass-bump.png" scene))
+        (B/texture "./textures/grass.jpg" scene))
   (set! (.-material ground) grass-material)
 
   ;; crate
@@ -65,4 +64,10 @@
   (set! (.-checkCollisions camera) true)
   (set! (.-ellipsoid camera) (B/vec3 1 1 1))
   (set! (.-checkCollisions ground) true)
-  (set! (.-checkCollisions crate) true))
+  (set! (.-checkCollisions crate) true)
+
+  ;; mouse clicks
+  ;; ============
+  (set! js/clickHandler
+        (fn [e]
+          (js/console.log e))))
