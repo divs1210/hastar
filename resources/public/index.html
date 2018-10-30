@@ -47,7 +47,6 @@
           // ======= Mouse Events =======
           var isLocked = false;
           scene.onPointerDown = function (evt) {
-
               if (document.pointerLockElement !== canvas) {
                   console.log('Was Already locked: ', document.pointerLockElement === canvas);
 
@@ -57,13 +56,9 @@
                           canvas.requestPointerLock();
                       }
                   }
+              } else {
+                  clickHandler(evt);
               }
-
-              //continue with shooting requests or whatever :P
-              //evt === 0 (left mouse click)
-              //evt === 1 (mouse wheel click (not scrolling))
-              //evt === 2 (right mouse click)
-              clickHandler(evt);
           };
 
           // Event listener when the pointerlock is updated (or removed by pressing ESC for example).

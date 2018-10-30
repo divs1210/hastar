@@ -1,6 +1,6 @@
 (ns hastar.core
   (:require [hastar.babylon :as B])
-  (:require-macros [hastar.babylon :refer [shape]]))
+  (:require-macros [hastar.babylon :refer [shape click-handler!]]))
 
 (defn ^:export init [canvas scene]
   (def canvas canvas)
@@ -68,6 +68,6 @@
 
   ;; mouse clicks
   ;; ============
-  (set! js/clickHandler
-        (fn [e]
-          (js/console.log e))))
+  (click-handler!
+   [e]
+   (js/console.log e)))

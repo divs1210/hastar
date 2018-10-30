@@ -13,3 +13,9 @@
 
 (defmacro shape [shape name props scene]
   `(~(shape-method shape) ~name (~'clj->js ~props) ~scene))
+
+
+(defmacro click-handler! [[e] & body]
+  `(set! js/clickHandler
+         (fn [~e]
+           ~@body)))
