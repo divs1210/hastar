@@ -32,7 +32,7 @@
     (B/std-material "grass" scene))
 
   (set! (-> grass-material .-diffuseTexture)
-        (B/texture "./textures/grass.jpg" scene))
+        (B/texture "./textures/grass.png" scene))
   (set! (.-material ground) grass-material)
 
   ;; crate
