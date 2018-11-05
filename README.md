@@ -1,6 +1,6 @@
 # hastar
 
-WIP game in ClojureScript using BabylonJS
+WIP game in ClojureScript using [BabylonJS](https://www.babylonjs.com/)
 
 ## Why
 
@@ -30,7 +30,8 @@ I will also demo the game and talk about my experiences, likes/dislikes, and the
 of Clojure for a project like this, and how it performed under the stress of working with an inherently
 alien, mutable world.
 
-Mostly, I want to find out whether writing "serious" 3D games in Clojure is possible and practical.
+Mostly, I want to find out whether writing "serious" 3D games in Clojure is possible and practical,
+and what are the tradeoffs it entails.
 
 ## Setup
 
